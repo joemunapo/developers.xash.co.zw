@@ -1,0 +1,18 @@
+<!-- docs/_sidebar.md -->
+
+* [Home](/)
+* [Getting Started](getting-started.md)
+  * [Authentication](authentication.md)
+  * [Making Requests](making-requests.md)
+  * [Error Handling](error-handling.md)
+* [API Reference](api-reference.md)
+  * [Wallet](wallet.md)
+  * [Airtime](airtime.md)
+  * [Data Bundles](bundles.md)
+  * [Electricity](electricity.md)
+  * [WiFi](wifi.md)
+  * [Transfers](transfers.md)
+  * [Reports](reports.md)
+* [Webhooks](webhooks.md)
+* [SDKs & Libraries](sdks.md)
+* [FAQs](faqs.md)
