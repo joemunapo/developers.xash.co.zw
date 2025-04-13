@@ -50,7 +50,7 @@ Retrieves the distinct types of currently available WiFi voucher options based o
 ### Buy WiFi Voucher
 
 <div class="api-method post">POST</div>
-<div class="endpoint">/api/v1/wifi/buy</div>
+<div class="endpoint">/api/v1/wifi/vouchers/buy</div>
 
 Purchases one or more WiFi vouchers of a specific type.
 
