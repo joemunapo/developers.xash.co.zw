@@ -29,7 +29,7 @@ Here's a simple example of how to make your first API request to check your wall
 
 ```bash
 curl -X GET \
-  https://api.xash.co.zw/v1/wallet \
+  https://dev.xash.co.zw/v1/wallet \
   -H 'Authorization: Bearer YOUR_API_TOKEN' \
   -H 'Content-Type: application/json'
 ```
@@ -68,7 +68,7 @@ Use the sandbox environment for testing your integration without making real tra
 ### Production
 
 ```
-https://api.xash.co.zw/v1
+https://dev.xash.co.zw/v1
 ```
 
 Once your integration is tested and ready, you can switch to the production environment to make real transactions.

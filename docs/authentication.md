@@ -278,7 +278,7 @@ After successful login or password setup, you'll receive an access token. Includ
 
 ```bash
 curl -X GET \
-  https://api.xash.co.zw/v1/wallet \
+  https://dev.xash.co.zw/v1/wallet \
   -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' \
   -H 'Content-Type: application/json'
 ```
