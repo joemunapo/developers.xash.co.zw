@@ -219,12 +219,14 @@ Creates a business profile for the authenticated user.
 
 **Example Request:**
 ```json
+
 {
-  "business_name": "Acme Corporation",
-  "business_category_id": 1,
-  "business_address": "123 Main Street, Harare",
-  "business_phone": "263712345678",
-  "business_email": "info@acme.com"
+  "address_line_1" : "Acme Corporation",
+  "city": "Harare",
+  "business_name": "Tapiwa Business",
+  "business_category":"Information Technology",
+  "business_address_line_1": "123 Main Street, Harare",
+  "business_city":"Harare"
 }
 ```
 
