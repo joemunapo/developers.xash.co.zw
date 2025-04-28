@@ -83,12 +83,27 @@ Purchases a data bundle directly for a phone number.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transaction_id": "tx_123456",
-    "status": "completed",
-    "message": "Data bundle purchased successfully"
-  }
+    "message": "$0.20 = Voice Daily USD Bundle bundle purchased successfully",
+    "success": true,
+    "data": {
+        "name": "$0.20 = Voice Daily USD Bundle",
+        "type": "direct_bundle",
+        "id": "9ec85596-0cdd-4f1d-aab2-4f5ede51d7fb",
+        "reference": "4F5EDE51D7FB",
+        "amount": "0.2",
+        "currency": "USD",
+        "mobile_phone": "0772345678",
+        "status": "success",
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "1.857",
+            "balance": "54.20"
+        },
+        "commission": "USD0.018",
+        "receipt_footer": "Thanks!",
+        "created_at": "2025-04-28T09:31:05.000000Z"
+    }
 }
 ```
 
@@ -127,26 +142,27 @@ Purchases a data bundle voucher.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transaction_id": "tx_123456",
-    "vouchers": [
-      {
-        "code": "1234-5678-9012-3456",
-        "bundle_name": "Daily Data 1GB",
-        "carrier": "Econet",
-        "price": 2.50,
-        "currency": "USD"
-      },
-      {
-        "code": "2345-6789-0123-4567",
-        "bundle_name": "Daily Data 1GB",
-        "carrier": "Econet",
-        "price": 2.50,
-        "currency": "USD"
-      }
-    ]
-  }
+    "message": "$0.20 = Voice Daily USD Bundle bundle purchased successfully",
+    "success": true,
+    "data": {
+        "name": "$0.20 = Voice Daily USD Bundle",
+        "type": "direct_bundle",
+        "id": "9ec85596-0cdd-4f1d-aab2-4f5ede51d7fb",
+        "reference": "4F5EDE51D7FB",
+        "amount": "0.2",
+        "currency": "USD",
+        "mobile_phone": "0772345678",
+        "status": "success",
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "1.857",
+            "balance": "54.20"
+        },
+        "commission": "USD0.018",
+        "receipt_footer": "Thanks!",
+        "created_at": "2025-04-28T09:31:05.000000Z"
+    }
 }
 ```
 

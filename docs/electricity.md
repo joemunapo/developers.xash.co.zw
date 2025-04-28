@@ -22,25 +22,32 @@ Validates an electricity meter account before purchasing tokens.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | meter_number | string | Yes | Electricity meter number |
+| currency | string | Yes | Set this to USD |
+| amount | string | Yes | set this amount to 5 |
 
 **Example Request:**
 ```json
 {
-  "meter_number": "12345678901"
+  {
+  "currency" :"USD",
+  "meter_number" : "123456789",
+  "amount":"5"
+  }
 }
 ```
 
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "meter_number": "12345678901",
-    "customer_name": "John Doe",
-    "address": "123 Main Street, Harare",
-    "meter_type": "Prepaid",
-    "is_valid": true
-  }
+    "success": true,
+    "message": "Account verified successfully.",
+    "data": {
+        "customer_name": "John Doe",
+        "customer_address": "1st Street, Address",
+        "meter_number": "123456789",
+        "meter_currency": "ZWG",
+        "success": true
+    }
 }
 ```
 
@@ -67,24 +74,63 @@ Purchases electricity tokens for a validated meter.
 **Example Request:**
 ```json
 {
-  "meter_number": "12345678901",
-  "amount": 10
+  {
+  "currency" :"USD",
+  "meter_number" : "123456789",
+  "amount":"5"
+  }
 }
 ```
 
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transaction_id": "tx_123456",
-    "token": "1234-5678-9012-3456-7890",
-    "units": "52.7 kWh",
-    "amount": 10,
-    "currency": "USD",
-    "customer_name": "John Doe",
-    "meter_number": "12345678901"
-  }
+    "success": true,
+    "message": "ZESA tokens purchased successfully.",
+    "data": {
+        "customer_name": "John Doe",
+        "customer_address": "1st Street, Address",
+        "meter_number": "123456789",
+        "meter_currency": "ZWG",
+        "success": true,
+        "reference": "74A033C39C1D",
+        "kwh": "29.52",
+        "energy": "ZWG64.95",
+        "debt": "ZWG0.00",
+        "rea": "ZWG3.90",
+        "vat": "ZWG0.00",
+        "tendered_currency": "USD",
+        "tendered": "USD5.00",
+        "total_amt": "ZWG68.85",
+        "date": "28/04/25 11:40",
+        "tokens": [
+            {
+                "token": "56961115316491527310",
+                "units": "29.52",
+                "formatted": "5696 1115 3164 9152 7310",
+                "rate": "29.52@2.2: ",
+                "receipt": "00001250428114032443",
+                "tax_rate": "0.00",
+                "net_amount": "64.95",
+                "tax_amount": "0.00",
+                "position": 1
+            }
+        ],
+        "id": "9ec858f4-e514-4ab6-aa0d-74a033c39c1d",
+        "name": "Electricity purchase",
+        "type": "electricity",
+        "amount": "5",
+        "currency": "USD",
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "5.582",
+            "balance": "9.20"
+        },
+        "commission": "USD0.125",
+        "receipt_footer": "Thanks!",
+        "created_at": "2025-04-28T09:40:30.000000Z"
+    }
 }
 ```
 

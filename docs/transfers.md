@@ -39,13 +39,17 @@ Initiates a transfer to another user.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transfer_id": "tr_123456",
-    "status": "pending",
-    "confirmation_url": "/api/v1/transfer/confirm/tr_123456",
-    "message": "Transfer initiated. Please confirm to complete."
-  }
+    "success": true,
+    "message": "Transfer initiated successfully.",
+    "data": {
+        "id": "9ec85ae2-22e8-4e7c-b64b-335e3ce0b97f",
+        "recipient": "2789714848",
+        "first_name": "John",
+        "last_name": "Doe",
+        "amount": "1",
+        "currency": "USD",
+        "reference": null
+    }
 }
 ```
 
@@ -71,16 +75,28 @@ Confirms a pending transfer.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transfer_id": "tr_123456",
-    "status": "completed",
-    "transaction_id": "tx_123456",
-    "recipient": "USR12345",
-    "amount": 25.50,
-    "currency": "USD",
-    "message": "Transfer completed successfully"
-  }
+    "success": true,
+    "message": "Transfer completed successfully.",
+    "data": {
+        "name": "Transfer to Dev Tech O - Assign Test 1001",
+        "type": "transfer",
+        "id": "9ec85bbf-e1d4-49e1-a00c-497c45285ae7",
+        "reference": null,
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "5.582",
+            "balance": "8.20"
+        },
+        "transaction_id": "9ec85bbf-e1d4-49e1-a00c-497c45285ae7",
+        "direction": "out",
+        "recipient": "2789716061",
+        "amount": "-1",
+        "currency": "USD",
+        "first_name": "John",
+        "last_name": "Doe",
+        "created_at": "2025-04-28T09:48:19.000000Z"
+    }
 }
 ```
 
