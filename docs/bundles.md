@@ -20,31 +20,32 @@ Retrieves a list of available data bundles across all carriers.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": [
-    {
-      "id": 1,
-      "carrier_id": 1,
-      "carrier_name": "Econet",
-      "name": "Daily Data 1GB",
-      "description": "1GB data valid for 24 hours",
-      "code": "econet_daily_1gb",
-      "price": 2.50,
-      "currency": "USD",
-      "is_active": true
-    },
-    {
-      "id": 2,
-      "carrier_id": 1,
-      "carrier_name": "Econet",
-      "name": "Weekly Data 5GB",
-      "description": "5GB data valid for 7 days",
-      "code": "econet_weekly_5gb",
-      "price": 10.00,
-      "currency": "USD",
-      "is_active": true
-    }
-  ]
+    "success": true,
+    "message": "Available bundles",
+    "data": [
+        {
+            "id": 1,
+            "name": "$0.20 = Voice Daily USD Bundle",
+            "price": "0.2",
+            "description": "",
+            "network": "Econet",
+            "valid_for": "1",
+            "currency": "USD",
+            "type": "Data"
+        },
+        {
+            "id": 2,
+            "name": "$0.30 300Mb + 8 SMS",
+            "price": "0.3",
+            "description": "$0.30 300Mb + 8 SMS",
+            "network": "Econet",
+            "valid_for": "1",
+            "currency": "USD",
+            "type": "Data"
+        },
+   	.....
+
+    ]
 }
 ```
 
@@ -76,7 +77,7 @@ Purchases a data bundle directly for a phone number.
 **Example Request:**
 ```json
 {
-  "phone": "263712345678"
+  "mobile_phone": "263712345678"
 }
 ```
 

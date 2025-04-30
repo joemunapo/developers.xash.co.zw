@@ -7,7 +7,7 @@ This guide explains how to make requests to the Xash API, including request form
 All API requests should be made using HTTPS to the base URL:
 
 ```
-https://api.xash.co.zw/v1
+https://dev.xash.co.zw/api/v1
 ```
 
 ## HTTP Methods
@@ -33,7 +33,7 @@ Example:
 
 ```bash
 curl -X GET \
-  https://api.xash.co.zw/v1/wallet \
+  https://dev.xash.co.zw/api/v1/wallet \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
@@ -45,7 +45,7 @@ For POST and PUT requests, include a JSON-formatted request body:
 
 ```bash
 curl -X POST \
-  https://api.xash.co.zw/v1/airtime/direct \
+  https://dev.xash.co.zw/api/v1/airtime/direct \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -61,7 +61,7 @@ For GET requests, you can include query parameters in the URL:
 
 ```bash
 curl -X GET \
-  'https://api.xash.co.zw/v1/reports/mini/USD/week' \
+  'https://dev.xash.co.zw/api/v1/reports/mini/USD/this_month' \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN'
 ```
 
@@ -78,7 +78,7 @@ Example:
 
 ```bash
 curl -X GET \
-  'https://api.xash.co.zw/v1/reports/history/USD?page=2&per_page=20' \
+  'https://dev.xash.co.zw/api/v1/reports/history/USD?page=2&per_page=20' \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN'
 ```
 
