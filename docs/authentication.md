@@ -177,21 +177,58 @@ Retrieves the authenticated user's profile information.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "user_number": "USR12345",
-    "first_name": "John",
-    "last_name": "Doe",
-    "phone": "263712345678",
-    "email": "john.doe@example.com",
-    "services": {
-      "airtime": true,
-      "data": true,
-      "electricity": true,
-      "wifi": true
+  "phone": "26377712345",
+  "first_name": "John",
+  "last_name": "Doe",
+  "id_number": "63-2345164-V-20",
+  "dob": "1990-12-12",
+  "email": "email@example.com",
+  "is_sub_account": false,
+  "user_number": 377323641,
+  "business": {
+    "id": 107,
+    "profile_phone": "263777234567",
+    "business_name": "Your Business",
+    "business_category": "Technology",
+    "bp_number": "000",
+    "business_address": {
+      "address_line_1": "Your Business Address",
+      "address_line_2": null,
+      "city": "Your City",
+      "country": "Your Country"
+    },
+    "home_address": {
+      "address_line_1": "your address",
+      "address_line_2": null,
+      "city": "Your City",
+      "country": "Your Country"
     }
-  }
+  },
+  "services": [
+    {
+      "name": "Airtime Voucher",
+      "slug": "airtime_voucher",
+      "order_by": 1
+    },
+    {
+      "name": "Direct Airtime",
+      "slug": "direct_airtime",
+      "order_by": 2
+    },
+    {
+      "name": "Data",
+      "slug": "data",
+      "order_by": 3
+    },
+    {
+      "name": "Electricity",
+      "slug": "electricity",
+      "order_by": 4
+    },
+    ....
+  ]
 }
+
 ```
 
 ### Create Business
@@ -219,12 +256,14 @@ Creates a business profile for the authenticated user.
 
 **Example Request:**
 ```json
+
 {
-  "business_name": "Acme Corporation",
-  "business_category_id": 1,
-  "business_address": "123 Main Street, Harare",
-  "business_phone": "263712345678",
-  "business_email": "info@acme.com"
+  "address_line_1" : "Acme Corporation",
+  "city": "Your City",
+  "business_name": "Your Business Name",
+  "business_category":"Information Technology",
+  "business_address_line_1": "123 Main Street,",
+  "business_city":"Your Business City"
 }
 ```
 
@@ -278,7 +317,7 @@ After successful login or password setup, you'll receive an access token. Includ
 
 ```bash
 curl -X GET \
-  https://dev.xash.co.zw/v1/wallet \
+  https://api.xash.co.zw/v1/wallet \
   -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' \
   -H 'Content-Type: application/json'
 ```

@@ -20,19 +20,46 @@ Retrieves a list of available airtime carriers.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": [
-    {
-      "id": 1,
-      "name": "Econet",
-      "code": "econet"
-    },
-    {
-      "id": 2,
-      "name": "NetOne",
-      "code": "netone"
-    }
-  ]
+    "message": "Supported carriers",
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Econet",
+            "commission": "9.00",
+            "has_direct_airtime": true,
+            "has_voucher": true,
+            "ussd_code": "*440*112#",
+            "vendor_ussd_code": "*121*PIN#",
+            "has_bundle": true,
+            "has_vendor_voucher": true,
+            "vendor_voucher_commission": "5.00"
+        },
+        {
+            "id": 2,
+            "name": "Telecel",
+            "commission": "5.00",
+            "has_direct_airtime": true,
+            "has_voucher": false,
+            "ussd_code": "",
+            "vendor_ussd_code": "",
+            "has_bundle": false,
+            "has_vendor_voucher": false,
+            "vendor_voucher_commission": "0.00"
+        },
+        {
+            "id": 3,
+            "name": "Netone",
+            "commission": "7.00",
+            "has_direct_airtime": true,
+            "has_voucher": true,
+            "ussd_code": "*133*PIN#",
+            "vendor_ussd_code": "*133*PIN#",
+            "has_bundle": false,
+            "has_vendor_voucher": false,
+            "vendor_voucher_commission": "7.00"
+        }
+    ]
 }
 ```
 
@@ -56,25 +83,42 @@ Purchases airtime directly for a phone number.
 | phone | string | Yes | Recipient phone number |
 | amount | number | Yes | Airtime amount |
 | carrier_id | integer | Yes | ID of the carrier |
+| currency | string | Yes | Currency eg USD or ZWL |
 
 **Example Request:**
 ```json
 {
-  "phone": "263712345678",
+  "mobile_phone": "263712345678",
   "amount": 5,
-  "carrier_id": 1
+  "carrier_id": 1,
+  "currency":"USD"
 }
 ```
 
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transaction_id": "tx_123456",
-    "status": "completed",
-    "message": "Airtime purchased successfully"
-  }
+    "success": true,
+    "message": "Recharge to +263712345678 was successful",
+    "data": {
+        "name": "Netone airtime",
+        "type": "direct_airtime",
+        "id": "9ec84a6c-11b6-4ff5-8f8a-dacbb57e2e88",
+        "reference": "DACBB57E2E88",
+        "amount": "1",
+        "currency": "USD",
+        "mobile_phone": "+263712345678",
+        "status": "success",
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "1.699",
+            "balance": "56.40"
+        },
+        "commission": "USD0.07",
+        "receipt_footer": "Thanks!",
+        "created_at": "2025-04-28T08:59:52.000000Z"
+    }
 }
 ```
 
@@ -100,19 +144,18 @@ Retrieves available voucher values for a specific carrier.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": [
-    {
-      "id": 1,
-      "value": 5,
-      "currency": "USD"
-    },
-    {
-      "id": 2,
-      "value": 10,
-      "currency": "USD"
-    }
-  ]
+    "success": true,
+    "message": "Econet airtime values",
+    "allow_custom_amount": true,
+    "data": [
+        "0.50",
+        "1.00",
+        "2.00"
+    ],
+    "vendor_voucher_values": [
+        "5.00",
+        "10.00"
+    ]
 }
 ```
 
@@ -140,37 +183,49 @@ Purchases an airtime voucher for a specific carrier.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | value_id | integer | Yes | ID of the voucher value |
-| quantity | integer | No | Number of vouchers to purchase (default: 1) |
+| quantity | integer | Yes | Number of vouchers to purchase |
+| is_vendor_voucher | Boolean | Yes | Check to see if is vendor voucher |
+| currency | string | Yes | currency eg USD, ZWL |
 
 **Example Request:**
 ```json
 {
-  "value_id": 1,
-  "quantity": 2
+  "quantity": "1",
+  "amount": "0.5",
+  "carrier_id": 3,
+  "currency":"USD",
+  "is_vendor_voucher": false
 }
 ```
 
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "transaction_id": "tx_123456",
-    "vouchers": [
-      {
-        "code": "1234-5678-9012-3456",
-        "value": 5,
+    "success": true,
+    "message": "Netone xash voucher purchase was successful",
+    "data": {
+        "status": "success",
+        "type": "voucher",
+        "id": "9ec8536e-56ea-4090-98e7-fcca2252c3ed",
+        "reference": "FCCA2252C3ED",
+        "name": "Netone xash voucher",
+        "amount": "1.00",
+        "voucher_value": "1.00",
         "currency": "USD",
-        "carrier": "Econet"
-      },
-      {
-        "code": "2345-6789-0123-4567",
-        "value": 5,
-        "currency": "USD",
-        "carrier": "Econet"
-      }
-    ]
-  }
+        "balance": {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "1.839",
+            "balance": "54.40"
+        },
+        "vouchers": [
+            "5304 6082 2442"
+        ],
+        "commission": "USD0.07",
+        "receipt_footer": "Thanks!",
+        "created_at": "2025-04-28T09:25:03.000000Z",
+        "recharge_instructions": "*133*PIN#"
+    }
 }
 ```
 

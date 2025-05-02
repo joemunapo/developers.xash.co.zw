@@ -20,17 +20,23 @@ Retrieves wallet information for all currencies associated with the authenticate
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": [
-    {
-      "currency": "USD",
-      "balance": 100.50
-    },
-    {
-      "currency": "ZWL",
-      "balance": 5000.00
-    }
-  ]
+    "success": true,
+    "message": "Wallet retrieved successfully",
+    "commission_release_date": "2025-05-05T04:30:00+02:00",
+    "data": [
+        {
+            "currency": "USD",
+            "name": "US Dollar",
+            "profit_on_hold": "1.629",
+            "balance": "57.40"
+        },
+        {
+            "currency": "ZiG",
+            "name": "Zimbabwe Gold",
+            "profit_on_hold": "0.000",
+            "balance": "0.00"
+        }
+    ]
 }
 ```
 
@@ -56,11 +62,15 @@ Retrieves wallet information for a specific currency.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "currency": "USD",
-    "balance": 100.50
-  }
+    "success": true,
+    "message": "Wallet retrieved successfully",
+    "commission_release_date": "2025-05-05T04:30:00+02:00",
+    "data": {
+        "currency": "USD",
+        "name": "US Dollar",
+        "profit_on_hold": "1.629",
+        "balance": "57.40"
+    }
 }
 ```
 
@@ -84,13 +94,13 @@ Initiates an InnBucks payment to add funds to your wallet.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | amount | number | Yes | Payment amount |
-| phone | string | Yes | InnBucks account phone number |
+
 
 **Example Request:**
 ```json
 {
   "amount": 50,
-  "phone": "263712345678"
+
 }
 ```
 

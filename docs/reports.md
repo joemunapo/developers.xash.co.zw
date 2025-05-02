@@ -16,7 +16,7 @@ Retrieves mini statements for a specific currency and time range.
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | currency | string | Yes | Currency code (e.g., USD, ZWL) |
-| range | string | Yes | Time range (today, week, month) |
+| range | string | Yes | Time range (today, yesterday, this_month) |
 
 **Headers:**
 
@@ -27,30 +27,48 @@ Retrieves mini statements for a specific currency and time range.
 **Example Response:**
 ```json
 {
-  "success": true,
-  "data": {
-    "total_in": 150.00,
-    "total_out": 75.50,
-    "balance": 74.50,
-    "currency": "USD",
-    "transactions": [
-      {
-        "id": "tx_123456",
-        "type": "credit",
-        "amount": 100.00,
-        "description": "Wallet deposit",
-        "date": "2025-04-09T07:30:00Z"
-      },
-      {
-        "id": "tx_123457",
-        "type": "debit",
-        "amount": 25.50,
-        "description": "Airtime purchase",
-        "date": "2025-04-09T08:15:00Z"
-      }
-    ]
-  }
-}
+    "success": true,
+    "message": "Mini-statement for This month (April 2025) fetched successfully",
+    "data": {
+        "currency": "USD",
+        "start": "2025-04-01 00:00:00",
+        "end": "2025-04-28 11:51:38",
+        "period": "This month (April 2025)",
+        "opening_balance": "0.00",
+        "closing_balance": "8.20",
+        "sales": [
+            {
+                "name": "Electricity",
+                "total": "20.00",
+                "profit": "0.500",
+                "count": "4"
+            },
+            {
+                "name": "Voucher Bundle",
+                "total": "41.20",
+                "profit": "3.708",
+                "count": "7"
+            },
+            {
+                "name": "Direct Bundle",
+                "total": "0.60",
+                "profit": "0.054",
+                "count": "3"
+            },
+            {
+                "name": "Voucher",
+                "total": "2.00",
+                "profit": "0.140",
+                "count": "2"
+            },
+            {
+                "name": "Direct Airtime",
+                "total": "8.00",
+                "profit": "0.700",
+                "count": "8"
+            },
+        ]
+    }
 ```
 
 ### Account History
