@@ -88,7 +88,7 @@ Here's an example of how to handle errors in JavaScript:
 ```javascript
 async function makeApiRequest(endpoint, method, data) {
   try {
-    const response = await fetch(`https://dev.xash.co.zw/v1/${endpoint}`, {
+    const response = await fetch(`https://dev.xash.co.zw/api/v1/${endpoint}`, {
       method: method,
       headers: {
         'Authorization': `Bearer ${accessToken}`,

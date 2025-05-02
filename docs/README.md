@@ -17,7 +17,7 @@ The Xash API provides a RESTful interface for developers to integrate payment an
 All API requests should be made to the following base URL:
 
 ```
-https://dev.xash.co.zw/v1
+https://dev.xash.co.zw/api/v1
 ```
 
 ## Authentication
